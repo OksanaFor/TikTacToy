@@ -55,13 +55,20 @@ namespace TikTacToy.Model
                 return true;
             else if (conditions[6] == conditions[7] && conditions[7] == conditions[8] && conditions[8] == target)
                 return true;
-
             else if (conditions[0] == conditions[3] && conditions[3] == conditions[6] && conditions[6] == target)
                 return true;
-            else if (conditions[1] == conditions[5] && conditions[5] == conditions[8] && conditions[8] == target)
+            else if (conditions[0] == conditions[3] && conditions[3] == conditions[6] && conditions[6] == target)
                 return true;
-
+            else if (conditions[1] == conditions[4] && conditions[4] == conditions[7] && conditions[7] == target)
+                return true;
+            else if (conditions[2] == conditions[5] && conditions[5] == conditions[8] && conditions[8] == target)
+                return true;
+            else if ((conditions[0] == conditions[4] && conditions[4] == conditions[8] && conditions[8] == target) ||
+                    (conditions[2] == conditions[4] && conditions[4] == conditions[6] && conditions[6] == target))
+                 return true;
             return false;
+
+
         }
     }
     
