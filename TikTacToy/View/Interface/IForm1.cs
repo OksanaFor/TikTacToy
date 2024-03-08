@@ -1,5 +1,5 @@
 ﻿using System;
-
+using TikTacToy.Common.Enums;
 
 namespace TikTacToy.View.Interface
 {
@@ -7,8 +7,9 @@ namespace TikTacToy.View.Interface
     {
         event Action<float> StartGameEvent;
         event Action<int> ClickEvent;
-        void DrowStep (int index);
+        
+        void DrowStep(int index);
+        void ViewReslt(User user);
+
     }
-    
-    
 }

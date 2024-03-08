@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TikTacToy.Presenters;
+using TikTacToy.View;
 
 namespace TikTacToy
 {
@@ -17,8 +18,8 @@ namespace TikTacToy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 form1 = new Form1();         
-            Form1Presenter presenter = new Form1Presenter(form1);
+            Registration form1 = new Registration();
+            RegistarationPresenter presenter = new RegistarationPresenter(form1);
             Application.Run(form1);
 
 

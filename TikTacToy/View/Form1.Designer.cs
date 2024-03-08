@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.startButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.picture4 = new System.Windows.Forms.PictureBox();
             this.picture9 = new System.Windows.Forms.PictureBox();
             this.picture5 = new System.Windows.Forms.PictureBox();
@@ -39,6 +38,8 @@
             this.picture8 = new System.Windows.Forms.PictureBox();
             this.picture3 = new System.Windows.Forms.PictureBox();
             this.picture1 = new System.Windows.Forms.PictureBox();
+            this.Result = new System.Windows.Forms.Label();
+            this.settings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picture4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture5)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(578, 626);
+            this.startButton.Location = new System.Drawing.Point(684, 562);
             this.startButton.Margin = new System.Windows.Forms.Padding(6);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(150, 44);
@@ -60,15 +61,6 @@
             this.startButton.Text = "START";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.Start);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(815, 597);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 82);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // picture4
             // 
@@ -188,12 +180,31 @@
             this.picture1.Tag = "0";
             this.picture1.Click += new System.EventHandler(this.ClickButton);
             // 
+            // Result
+            // 
+            this.Result.AutoSize = true;
+            this.Result.Location = new System.Drawing.Point(722, 37);
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(0, 25);
+            this.Result.TabIndex = 12;
+            // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(52, 47);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(133, 65);
+            this.settings.TabIndex = 15;
+            this.settings.Text = "SETTINGS";
+            this.settings.UseVisualStyleBackColor = true;
+            this.settings.Click += new System.EventHandler(this.OpenSettings);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 865);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.settings);
+            this.Controls.Add(this.Result);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.picture4);
             this.Controls.Add(this.picture1);
@@ -218,6 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -232,8 +244,9 @@
         private System.Windows.Forms.PictureBox picture9;
         private System.Windows.Forms.PictureBox picture4;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox picture1;
+        private System.Windows.Forms.Label Result;
+        private System.Windows.Forms.Button settings;
     }
 }
 

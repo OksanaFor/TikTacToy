@@ -1,4 +1,5 @@
 ﻿
+using TikTacToy.Common.Enums;
 using TikTacToy.Model;
 using TikTacToy.View.Interface;
 
@@ -15,6 +16,7 @@ namespace TikTacToy.Presenters
             _view = view;
             _view.StartGameEvent += Start;
             _view.ClickEvent += Click;
+           
 
 
         }
@@ -26,12 +28,31 @@ namespace TikTacToy.Presenters
         private void Click(int index)
         {
             _model.PlayerStep(index);
-            var botIndex = _model.BotStep();
-            if (botIndex != -1) 
+            if (_model.IsWin(CellCondition.Zero))
+            {
+                _view.ViewReslt(User.Player);
+                return;
+            }
+            var botIndex = GameSettings.Instance.Easy ? _model.BotStep() : _model.BotHardStep();
+
+            if (botIndex != -1)
+            {
                 _view.DrowStep(botIndex);
+                if (_model.IsWin(CellCondition.Cross))
+                {
+                    _view.ViewReslt(User.Pc);
+                    return;
+                }
+
+            }
+            else
+            {
+                _view.ViewReslt(User.None);
+            }
             
         
         }
+        
 
 
     }

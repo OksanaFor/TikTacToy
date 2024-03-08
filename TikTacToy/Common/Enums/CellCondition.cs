@@ -7,4 +7,5 @@ namespace TikTacToy.Common.Enums
         None,Cross,Zero
 
     }
+    
 }
