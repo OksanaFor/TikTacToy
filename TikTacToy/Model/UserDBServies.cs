@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Request;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -21,9 +22,9 @@ namespace TikTacToy.Model
                 var response = await client.PostAsync(url, stringContent);
                 if (response.IsSuccessStatusCode)
                 {
-                    var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
-                    AccessVerifivation.Instance.Token = data.Item1;
-                    AccessVerifivation.Instance.CurrentUser = data.Item2;
+                    //var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
+                    //AccessVerifivation.Instance.Token = data.Item1;
+                    //AccessVerifivation.Instance.CurrentUser = data.Item2;
                 }
                 else
                     throw new Exception(
@@ -32,7 +33,7 @@ namespace TikTacToy.Model
             }
         }
 
-        public async Task AuthorizadeUser(UserDto user)
+        public async Task AuthorizadeUser(AuthorizationDto user)
         {
 
             var url = ServerInfo.CreateRequestURL(ServerInfo.Host, controllerName, ServerInfo.Authorization);
@@ -45,9 +46,9 @@ namespace TikTacToy.Model
                 var response = await client.PostAsync(url, stringContent);
                 if (response.IsSuccessStatusCode)
                 {
-                    var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
-                    AccessVerifivation.Instance.Token = data.Item1;
-                    AccessVerifivation.Instance.CurrentUser = data.Item2;
+                    //var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
+                    //AccessVerifivation.Instance.Token = data.Item1;
+                    //AccessVerifivation.Instance.CurrentUser = data.Item2;
              
                 }
                 else

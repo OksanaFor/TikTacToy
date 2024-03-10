@@ -9,7 +9,7 @@ namespace TikTacToy.Model
     public static class ServerInfo
     {
         
-        public static string Host = "http://localhost:5180/";
+        public static string Host = "http://localhost:5062/";
 
         #region Controllers
         public static string User = nameof(User);

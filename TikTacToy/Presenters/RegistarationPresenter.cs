@@ -1,5 +1,6 @@
 ﻿
 using DTO;
+using DTO.Request;
 using System;
 using System.Threading.Tasks;
 using TikTacToy.Model;
@@ -13,10 +14,31 @@ namespace TikTacToy.Presenters
         private readonly IRegistration view;
         public RegistarationPresenter(IRegistration view)
         {
-           this.view = view;
+            this.view = view;
             this.view.AuthorizationEvent += AuthorizationAsync;
+            this.view.RegisterationEvent += RegistrationAsync;
         }
         private async void AuthorizationAsync(string login, string password)
+        {
+            try
+            {
+                AuthorizationDto autorDto = new AuthorizationDto
+                {
+
+                    Login = login,
+                    Password = password
+                };
+                await _userDBServies.AuthorizadeUser(autorDto);
+                view.OpenGame();
+            }
+            catch (Exception ex)
+            {
+                view.ShowNotification(ex.Message);
+            }
+
+        }
+
+        private async void RegistrationAsync(string login, string password)
         {
             try
             {
@@ -24,20 +46,19 @@ namespace TikTacToy.Presenters
                 {
 
                     Login = login,
-                    Password = password
+                    Password = password,
+                    Email = "ppp@pp.com"
                 };
-                //await _userDBServies.AuthorizadeUser(userDto);
+                await _userDBServies.RegistrationUser(userDto);
                 view.OpenGame();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 view.ShowNotification(ex.Message);
             }
+
+
+
         }
-
-
-        
-
-
     }
 }

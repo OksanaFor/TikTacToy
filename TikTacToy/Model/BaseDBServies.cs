@@ -13,17 +13,17 @@ namespace TikTacToy.Model
         {
             protected readonly string controllerName;
             protected BaseDBService()
+        {
+            controllerName = typeof(TDto).Name switch
             {
-                //controllerName = typeof(TDto).Name switch
-                //{
-                //    nameof(UserDto) => ServerInfo.User,
-                //    nameof(UserStatisticDto) => ServerInfo.UserStatistics,
-                //    nameof(RoomDto) => ServerInfo.Room,
-                 
-                //};
-            }
+                nameof(UserDto) => ServerInfo.User,
+                nameof(UserStatisticDto) => ServerInfo.UserStatistics,
+                nameof(RoomDto) => ServerInfo.Room,
 
-            public virtual async Task<TDto> GetById(GetByIdRequestDto<TKey> request)
+            };
+        }
+
+        public virtual async Task<TDto> GetById(GetByIdRequestDto<TKey> request)
             {
                 var url = ServerInfo.CreateRequestURL(ServerInfo.Host, controllerName, ServerInfo.GetById);
 

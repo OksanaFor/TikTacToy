@@ -15,6 +15,7 @@ namespace TikTacToy.View
         public event Action<string, string> RegisterationEvent;
         public event Action<string, string> AuthorizationEvent;
 
+
         public void OpenGame()
         {
             Form1 form = new Form1();
@@ -30,8 +31,12 @@ namespace TikTacToy.View
 
         private void ClickOpenGame(object sender, EventArgs e)
         {
-            AuthorizationEvent?.Invoke("","");
+            AuthorizationEvent?.Invoke(textBox1.Text, textBox2.Text);
 
+        }
+        private void RegistrationOpenGame(object sender, EventArgs e)
+        {
+            RegisterationEvent?.Invoke(textBox1.Text, textBox2.Text);
         }
     }
 }

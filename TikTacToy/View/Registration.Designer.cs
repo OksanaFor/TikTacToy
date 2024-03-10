@@ -44,10 +44,11 @@
             this.reg.TabIndex = 0;
             this.reg.Text = "Registration";
             this.reg.UseVisualStyleBackColor = true;
+            this.reg.Click += new System.EventHandler(this.RegistrationOpenGame);
             // 
             // auth
             // 
-            this.auth.Location = new System.Drawing.Point(262, 76);
+            this.auth.Location = new System.Drawing.Point(268, 76);
             this.auth.Name = "auth";
             this.auth.Size = new System.Drawing.Size(163, 35);
             this.auth.TabIndex = 1;
