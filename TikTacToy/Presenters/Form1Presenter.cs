@@ -17,8 +17,6 @@ namespace TikTacToy.Presenters
             _view.StartGameEvent += Start;
             _view.ClickEvent += Click;
            
-
-
         }
         private void Start(float temp)
         {
@@ -50,9 +48,8 @@ namespace TikTacToy.Presenters
                 _view.ViewReslt(User.None);
             }
             
-        
         }
-        
+      
 
 
     }

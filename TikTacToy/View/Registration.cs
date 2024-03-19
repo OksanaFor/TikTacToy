@@ -18,8 +18,8 @@ namespace TikTacToy.View
 
         public void OpenGame()
         {
-            Form1 form = new Form1();
-            Form1Presenter form1Presenter = new Form1Presenter(form);
+            RoomSelectionForm form = new RoomSelectionForm();
+            RoomSelectionFormPresenter form1Presenter = new RoomSelectionFormPresenter(form);
             Hide();
             form.Show();
         }

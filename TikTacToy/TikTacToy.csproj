@@ -64,12 +64,14 @@
     <Compile Include="Common\Enums\User.cs" />
     <Compile Include="Model\AccessVerifivation.cs" />
     <Compile Include="Model\BaseDBServies.cs" />
+    <Compile Include="Model\RoomDbServise.cs" />
     <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="Model\UserDBServies.cs" />
     <Compile Include="Model\GameSettings.cs" />
     <Compile Include="Model\MainLogic.cs" />
     <Compile Include="Presenters\Form1Presenter.cs" />
     <Compile Include="Presenters\RegistarationPresenter.cs" />
+    <Compile Include="Presenters\RoomSelectionFormPresenter.cs" />
     <Compile Include="Presenters\SettingsPresenter.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
@@ -79,6 +81,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Interface\IRoomSelectionForm.cs" />
+    <Compile Include="View\RoomSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RoomSelectionForm.Designer.cs">
+      <DependentUpon>RoomSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Interface\IBaseView.cs" />
     <Compile Include="View\Interface\IForm1.cs" />
     <Compile Include="View\Interface\IRegistration.cs" />
@@ -108,6 +117,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\RoomSelectionForm.resx">
+      <DependentUpon>RoomSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>

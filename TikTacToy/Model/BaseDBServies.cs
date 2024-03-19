@@ -2,6 +2,7 @@
 using DTO.Request;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,8 +46,27 @@ namespace TikTacToy.Model
                             );
                 }
             }
+        public virtual async Task<List<TDto>> GetAll()
+        {
+            var url = ServerInfo.CreateRequestURL(ServerInfo.Host, controllerName, ServerInfo.GetAll);
 
-            public virtual async Task Update(TDto model)
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessVerifivation.Instance.Token);
+                var response = await client.PostAsync(url,null);
+                if (response.IsSuccessStatusCode)
+                {
+                    return JsonConvert.DeserializeObject<List<TDto>>(await response.Content.ReadAsStringAsync());
+                    
+                }
+                else
+                    throw new Exception(
+                        JsonConvert.DeserializeObject<Exception>(await response.Content.ReadAsStringAsync()).Message
+                        );
+            }
+        }
+
+        public virtual async Task Update(TDto model)
             {
                 var url = ServerInfo.CreateRequestURL(ServerInfo.Host, controllerName, ServerInfo.Update);
 

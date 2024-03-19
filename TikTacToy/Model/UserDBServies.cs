@@ -22,9 +22,9 @@ namespace TikTacToy.Model
                 var response = await client.PostAsync(url, stringContent);
                 if (response.IsSuccessStatusCode)
                 {
-                    //var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
-                    //AccessVerifivation.Instance.Token = data.Item1;
-                    //AccessVerifivation.Instance.CurrentUser = data.Item2;
+                    var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
+                    AccessVerifivation.Instance.Token = data.Item1;
+                    AccessVerifivation.Instance.CurrentUser = data.Item2;
                 }
                 else
                     throw new Exception(
@@ -46,10 +46,10 @@ namespace TikTacToy.Model
                 var response = await client.PostAsync(url, stringContent);
                 if (response.IsSuccessStatusCode)
                 {
-                    //var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
-                    //AccessVerifivation.Instance.Token = data.Item1;
-                    //AccessVerifivation.Instance.CurrentUser = data.Item2;
-             
+                    var data = JsonConvert.DeserializeObject<Tuple<string, UserDto>>((await response.Content.ReadAsStringAsync()));
+                    AccessVerifivation.Instance.Token = data.Item1;
+                    AccessVerifivation.Instance.CurrentUser = data.Item2;
+
                 }
                 else
                     throw new Exception(
