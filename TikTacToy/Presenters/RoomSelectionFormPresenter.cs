@@ -13,6 +13,7 @@ namespace TikTacToy.Presenters
         {
             _view = view;
             view.LoadNew += GetAllRooms;
+            view.EnterRoom += GetAllRooms;
         }
         private async void GetAllRooms()
         {

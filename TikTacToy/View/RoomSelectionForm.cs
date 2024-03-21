@@ -15,6 +15,7 @@ namespace TikTacToy.View.Interface
         }
 
         public event Action LoadNew;
+        public event Action EnterRoom;
 
         public void ShowNotification(string message)
         {
@@ -23,8 +24,8 @@ namespace TikTacToy.View.Interface
 
         public void ShowRooms(List<RoomDto> rooms)
         {
-            roomList.Items.AddRange(rooms.Select(s => s.Name).ToArray());
-
+            roomList.Items.AddRange(rooms.ToArray());
+            roomList.ValueMember = "Name";
         }
 
         private void RoomSelectionForm_Shown(object sender, EventArgs e)
